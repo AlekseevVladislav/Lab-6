@@ -9,6 +9,8 @@ Original file is located at
 
 class House(object):
 
+    house_type = "House"
+
     def __init__(self, floor, flats, front_doors, avg_apart_area):
 
         self.floor = floor
@@ -32,6 +34,10 @@ class House(object):
 
         return "Отношение жил/площади к площади земли " + str(self.floor*self.flats*self.front_doors*self.avg_apart_area/a)
 
+    def info(self):
+
+        return "Этажей: "+str(self.floor)+"\n" + "Всего квартир: " + str(self.flats) +"\n"+ "Парадных: " + str(self.front_doors) +"\n" + "Ср.площадь квартиры: " + str(self.avg_apart_area) +  "\n" + "Тип дома " + str(self.house_type)
+
 class Cottage(House):
 
     house_type = "Cottage"
@@ -54,7 +60,13 @@ H2 = House(2,5,3,13.5)
 C1 = Cottage(2,5,3,13.5)
 S1 = Skyscraper(2,5,3,13.5)
 print(H2.metters_count(10))
+print()
 print(H2.flat_floor_count())
+print()
 print(H1 + H2)
+print()
+print(H2.info())
+print()
 print(S1.info())
+print()
 print(C1.info())
